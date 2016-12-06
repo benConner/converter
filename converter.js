@@ -1,12 +1,11 @@
 function toCelsius (FahInput) {
 	var cels = (FahInput-32)*(5/9);
-	console.log("you got " + cels);   
+	console.log("cel"+ cels)
 }
 
 function toFahrenheit (celsInput) {
-	console.log(celsInput.typeOf);
 	var fah = (9/5)*celsInput+32;
-	console.log("you got " + fah);
+	console.log("fah "+ fah)
 }
 
 // Get a reference to the button element in the DOM
@@ -17,15 +16,22 @@ var userInput = document.getElementById("temp-input");
 // happen based on which radio button is selected.
 function determineConverter (clickEvent) {
 
-	var button1 = document.getElementById("fahrenheit-scale-radio");
-	var button2 = document.getElementById("celsius-scale-radio");
+	var fahBtn = document.getElementById("fahrenheit-scale-radio");
+	var celsBtn = document.getElementById("celsius-scale-radio");
 
-	if (button1.checked){
+	//calls upon the functions that convert temperatures
+	if (fahBtn.checked){
 		toFahrenheit(userInput.value);
-    	console.log("fahrenheit selected");
-	}else if (button2.checked) {
+	}else if (celsBtn.checked) {
 		toCelsius(userInput.value);
-    	console.log("celsius selected");
+	}
+	debugger
+	if (fahBtn.checked && userInput.value > 32 || celsBtn.checked && userInput > 90){
+		console.log('red');
+	}else if(fahBtn.checked && userInput.value < 32 || celsBtn.checked && userInput < 0){
+		console.log('blue');
+	}else{
+		console.log('green')
 	}
 }
 

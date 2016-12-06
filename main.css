@@ -1,0 +1,11 @@
+.temp-greater-90f-32c{
+	color: red;
+}
+
+.temp-less-32f-0c{
+	color: blue;
+}
+
+.temp-comf{
+	color: green;
+}
